@@ -1,12 +1,5 @@
-﻿import std.stdio;
-
-auto differential(F)(F f)
-{
-    auto h = float.epsilon;
-    return (double x) {
-        return (f(x + h) - f(x - h)) / (h * 2);
-    };
-}
+import std.stdio;
+import lib.differential;
 
 void main()
 {
