@@ -1,12 +1,16 @@
 module lib.newton;
-
 import lib.differential;
 
-double newton(F)(F f, uint times = 1000, double init = 100)
+double newton(F)(F f, double init, double epsilon=float.epsilon)
 {
-    auto df = differential(f);
-    foreach(i; 0..times) {
-        init = init - f(init)/df(init);
+  import std.math;
+  auto df = differential(f);
+  while (true) {
+    auto d = f(init)/df(init);
+    init = init - d;
+    if (abs(d) <= epsilon) {
+      break;
     }
-    return init;
+  }
+  return init;
 }
