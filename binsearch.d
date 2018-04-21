@@ -1,5 +1,5 @@
 import std.stdio;
-import lib.binsearch;
+import lib.binsearch : binsearch;
 
 void main()
 {
