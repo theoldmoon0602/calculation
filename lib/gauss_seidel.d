@@ -1,4 +1,4 @@
-﻿module lib.gauss_seidel;
+module lib.gauss_seidel;
 
 /// 各配列の最終要素が右辺、それ以外は左辺とし、それぞれx,y,z...の係数と解釈
 auto gauss_seidel(double[][] exprs, uint max_loop=30, double eps=float.epsilon, double[] init = null)
@@ -43,13 +43,4 @@ auto gauss_seidel(double[][] exprs, uint max_loop=30, double eps=float.epsilon, 
     }
     
     return init[0..$-1];
-}
-main()
-{
-    auto ans = jacobi([
-        [2, -1, 0, 1],  // 2x - y = 1
-        [-1, 2, -1, 0],  // -x + 2y - z = 0
-        [0, -1, 2, 1],  // -y + 2z = 1
-    ], 30, 0.0001, [0,0,0,0]);
-    writeln(ans);
 }
