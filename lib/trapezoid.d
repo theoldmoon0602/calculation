@@ -14,7 +14,7 @@ do
     double r = 0.0;
     double x = (to-from) / n;
     for (auto i = 0; i < n; i++) {
-        auto a = x * i, b = x * (i + 1);
+        auto a = x * i + from, b = x * (i + 1) + from;
         r += (b-a) * (f(a) + f(b)) / 2;
     }
     return r;
